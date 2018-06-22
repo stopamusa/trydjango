@@ -2,6 +2,7 @@
 
 from django.http import HttpResponse
 from django.shortcuts import render
+from .models import Post
 
 # Create your views here.
 
@@ -17,6 +18,13 @@ def post_detail(request):
 	return render(request, "index.html", context)
 
 def post_list(request): #list items
+	
+	queryset = Post.objects.all()
+	context = {
+		"object_list": queryset,
+		"title": "List"
+	}
+	return render(request, "index.html", context)
 	# if request.user.is_authenticated():
 	# 	context = {
 	# 		"title": "My User List"
@@ -25,10 +33,7 @@ def post_list(request): #list items
 	# 	context = {
 	# 	"title": "List"
 	# 	}
-	context = {
-	"title": "List"
-	}
-	return render(request, "index.html", context)
+	
 	# return HttpResponse("<h1>list</h1>")
 
 def post_update(request):
