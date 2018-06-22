@@ -22,6 +22,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     # url(r'^posts/$', views.post_home),
     # url(r'^posts/$', post_home),
-    url(r'^posts/', include('posts.urls')),
+    url(r'^posts/', include('posts.urls', namespace='posts')),
     
 ]
