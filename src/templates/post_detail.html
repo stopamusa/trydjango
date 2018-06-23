@@ -15,6 +15,10 @@
 	<p>Author: {{ instance.user.get_full_name }} </p>
 	{% endif %}
 
+	<!-- <div class="fb-like" data-href="{{ request.build_absolute_uri }}" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div> -->
+
+	<div class="fb-like" data-href="{{ request.build_absolute_uri }}" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+	<!-- <p>
 		<a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}">
 		Facebook
 		</a>
@@ -27,10 +31,19 @@
 		Linkedin
 		</a>
 		<a href="http://www.reddit.com/submit?url={{ request.build_absolute_uri }}/&title={{share_string}}">Reddit</a>
-
-
+	</p>
+ -->
+ <div class='row'>
+ <div class='col-sm-12'>
+ 	<hr/>
 	{{ instance.content|linebreaks }}<br/>
+	<hr/>
+	<br/>
 
-	
+	<div class="fb-comment-embed" data-href="https://www.facebook.com/zuck/posts/10102577175875681?comment_id=1193531464007751&amp;reply_comment_id=654912701278942" data-width="560" data-include-parent="false"></div>
+
+	<div class="fb-comment-embed" data-href="{{ request.build_absolute_uri }}" data-width="560" data-include-parent="false"></div>
+</div>
+</div>	
 </div>
 {% endblock content %}
