@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from urllib import quote_plus
 
 from django.contrib import messages
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -27,9 +28,11 @@ def post_create(request):
 
 def post_detail(request, slug=None):
 	instance = get_object_or_404(Post, slug=slug)
+	share_string = quote_plus(instance.content)
 	context = {
 		"title": instance.title,
-		"instance": instance
+		"instance": instance,
+		"share_string": share_string,
 	}
 	return render(request, "post_detail.html", context)
 
